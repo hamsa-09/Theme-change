@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Element Example</title>
+</head>
+<body>
+    <div id="container" style="background-color: blueviolet;">
+       <p id="rem">Hello hamsa</p>
+        <button id="btn" onclick="addParagraph()">Remove</button>
+    </div>
+
+    <script>
+        function addParagraph() {
+            // const para=document.createElement("p");
+            // para.textContent="hello kitty";
+            // document.getElementById("container").appendChild(para);
+        // const container=document.getElementById("container");
+        // const para=document.getElementById("rem");
+        // container.removeChild(para);
+        const button = document.getElementById("btn");
+            if(button.textContent === "Remove"){
+                const container = document.getElementById("container");
+            const Element = document.getElementById("rem");
+            const button = document.getElementById("btn");
+            container.removeChild(Element);
+            button.textContent = "Add"
+
+            }
+            else if(button.textContent ==="Add"){
+                const New  = document.createElement("p");
+                New.textContent = "Hello"
+                const container  = document.getElementById("container");
+                container.appendChild(New);
+                button.textContent = "Remove";
+            }
+          
+        }
+            </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <title>Dark Mode And Light Mode</title>
+  <style>
+    body {
+      background-color: white;
+      color: black;
+      transition: background-color 1s, color 1s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    button {
+      padding: 15px;
+      width: 100px;
+
+      height: 100%;
+      border-radius: 20px;
+      border: none;
+      color: white;
+      background-color: rgb(13, 13, 183);
+      transition: 100ms ease-in-out;
+      cursor: pointer;
+      position: relative; /* Ensure relative positioning for absolute positioning */
+      overflow: hidden; /* Hide overflow to clip animation */
+    }
+    button.light-hover:hover{
+       transform: scale(1.1);
+       box-shadow:0 0 10px rgba(0,0,0,0.8);
+    }
+    button.dark-hover:hover{
+       transform: scale(1.1);
+       box-shadow:0 0 10px rgba(255,255,255,0.8);
+    }
+    button span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      transform: translatex(-100%);
+      transition: transform 0.3s ease-in-out;
+     
+    }
+   i{
+    margin-left: 15px;
+   }
+    button:hover span {
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body id="Body">
+  <div class="container">
+    <button id="btn" class="light-hover">
+        <span>DarkMode   <i class="fa-solid fa-moon"></i></span>
+    </button>
+  </div>
+  <script>
+    document.getElementById('btn').addEventListener('click', toggleTheme);
+    var body = document.getElementById('Body');
+    var button = document.getElementById('btn');
+
+    function toggleTheme() {
+      const currentColor = window.getComputedStyle(body).backgroundColor;
+      if (currentColor === "rgb(255, 255, 255)") {
+        body.style.backgroundColor = "black";
+        body.style.color = "white";
+        button.classList.remove('light-hover');
+        button.classList.add('dark-hover');
+        button.style.backgroundColor = "white";
+        button.style.color="black";
+        button.innerHTML = '<span>Light Mode <i class="fa-solid fa-sun"></i></span>';
+      } else {
+        body.style.backgroundColor = "white";
+        body.style.color = "black";
+        button.classList.remove('dark-hover');
+        button.classList.add('light-hover');
+        button.style.backgroundColor = "rgb(13, 13, 183)";
+        button.style.color="white";
+        button.innerHTML = '<span>Dark Mode <i class="fa-solid fa-moon"></i></span>';
+      }
+    }
+  </script>
+</body>
+</html>

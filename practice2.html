@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventListner</title>
+    <style>
+       *{
+        margin: 0%;
+       }
+     .container{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            height: 300px;
+            top: 50%;
+            left: 50%;
+            border: solid 1px ;
+            position: absolute;
+            transform: translate(-50%,-50%);
+     }
+    </style>
+</head>
+<body id="b" style="background-color:white;color: black;" >
+   <div class="container"> <p><b>Hello</b></p><br><br>
+    <!-- <p id="p1">0</p> -->
+    <!-- <button id="cls-btn">click to increment</button>
+    <button id="dec">click to decrement</button> -->
+    <button id="theme">Dark theme</button>
+</div>
+</body>
+<script>
+//     document.getElementById("cls-btn").addEventListener('click',increment);
+//     function increment() {
+//         document.getElementById('p1').innerHTML++;
+//     }
+// document.getElementById("dec").addEventListener('click',decrement);
+// function decrement(){
+//     document.getElementById('p1').innerHTML--;
+// }
+// document.getElementById("cls-btn").addEventListener('mouseover',increment);
+//     function increment() {
+//      var p=document.getElementById('p1')
+//      p.innerHTML++;
+    
+//     }
+// document.getElementById("dec").addEventListener('click',decrement);
+// function decrement(){
+//    var dec= document.getElementById('p1')
+  
+//    if(dec.innerHTML>0){
+//     dec.innerHTML--;
+//    }
+// }
+document.getElementById('theme').addEventListener('click',change);
+
+function change(){
+var bc=document.getElementById('b')
+if(bc.style.backgroundColor==='white'){
+    bc.style.backgroundColor='black'
+    bc.style.color='white'
+    document.getElementById('theme').innerHTML="White theme";
+
+}
+else{
+    bc.style.backgroundColor='white'
+    bc.style.color='black'
+    document.getElementById('theme').innerHTML="Dark theme";
+}
+}
+</script>
+</html>
